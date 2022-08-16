@@ -1,0 +1,29 @@
+{
+  "name": "feel-your-space-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeokyoungYou/feel-your-space-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeokyoungYou/feel-your-space-server/issues"
+  },
+  "homepage": "https://github.com/SeokyoungYou/feel-your-space-server#readme",
+  "dependencies": {
+    "apollo-server": "^3.10.1",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
