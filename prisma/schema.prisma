@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// pscale connect feel-your-space
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures=["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+
+// model VideosOfKeywords{
+//   video  Video @relation(fields: [videoId], references: [videoId])
+//   videoId Int
+//   keyword Keyword @relation(fields: [keywordId], references: [id])
+//   keywordId Int
+//   @@id([videoId, keywordId])
+  
+// }
+// model Keyword{
+//   id        Int      @id @default(autoincrement())
+//   title String
+//   videos VideosOfKeywords[]
+// }
+// model Video{
+//   keywords VideosOfKeywords[]
+//   videoId Int @id 
+//   url String
+//   channelId Int
+//   channelThumbnail String
+//   title String
+//   description String
+//   thumnail String
+//   duration String
+//   viewCount String
+//   likeCount String
+// }
+
+
+  // model Video {
+  //   id Id 
+  //   url String
+  //   snippet Snippet
+  //   infos VideoInfos
+  // }
+  // model Id {
+  //   videoId  String @id
+  // }
+  // model Snippet {
+  //   channelId  String @id
+  //   channelThumbnail String
+  //   title String
+  //   description String
+  //   thumbnails Thumnails
+  // }
+  // model VideoInfos {
+  //   contentDetails ContentDetails
+  //   statistics Statistics
+  // }
+  // model ContentDetails {
+  //   duration String
+  // }
+  // model Statistics {
+  //   viewCount String
+  //   likeCount String
+  // }
+  // model Thumnails {
+  //   default Thumnail
+  //   medium Thumnail
+  //   high Thumnail
+  // }
+  // model Thumnail {
+  //   url String
+  //   width Int
+  //   height Int
+  // }
+
