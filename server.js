@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const keywords = ["jazz", "playlist"];
+// const keywords = ["kpop", "청량한", "playlist"];
 const typeDefs = gql`
   type Video {
     id: Id
@@ -15,9 +16,14 @@ const typeDefs = gql`
   }
   type Snippet {
     channelId: ID
-    channelThumbnail: String
+    channel: ChannelInfos
+    # channelThumbnail: String
     title: String
     description: String
+    thumbnails: Thumnails
+  }
+  type ChannelInfos {
+    title: String
     thumbnails: Thumnails
   }
   type VideoInfos {
@@ -73,12 +79,19 @@ const resolvers = {
   },
   Snippet: {
     //Video list의 각 Video에 추가 정보 가져오기
-    async channelThumbnail({ channelId }) {
+    // async channelThumbnail({ channelId }) {
+    //   return await fetch(
+    //     `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${process.env.API_KEY}`
+    //   )
+    //     .then((response) => response.json())
+    //     .then((json) => json.items[0].snippet.thumbnails.default.url);
+    // },
+    async channel({ channelId }) {
       return await fetch(
         `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${process.env.API_KEY}`
       )
         .then((response) => response.json())
-        .then((json) => json.items[0].snippet.thumbnails.default.url);
+        .then((json) => json.items[0].snippet);
     },
   },
 };

@@ -42,13 +42,13 @@ const typeDefs = gql`
     height: Int
   }
   type Query {
-    searchVideos(keywords: String[]): [Video]
+    searchVideos(): [Video]
   }
 `;
 const resolvers = {
   Query: {
     //1. keyword query를 넣어서 검색 결과물 Video list 가져오기
-    async searchVideos(root, { keywords }) {
+    async searchVideos(root) {
       return await fetch(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keywords.join(
           ""
